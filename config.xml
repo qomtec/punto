@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.qomtecsoft.ionic.punto" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.qomtecsoft.ionic.punto" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Punto Dental</name>
     <description>Gestión y registro en tu clínica dental.</description>
     <author email="devs@qomtecsoft.com" href="http://www.qomtecsoft.com/">Qomtec Software Team</author>
