@@ -1,11 +1,60 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+        <strong>Mis gestiones</strong>
+      </ion-title>
+      <ion-buttons end>
+        <button ion-button tappable (click)="presentNotifications($event)">
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+        <button ion-button tappable (click)="goToAccount()">
+          <ion-icon name="cog"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding class="animated fadeIn login auth-page">
+      <div class="login-content">
+          <ion-card width="100">
+              <ion-card-header>
+                Explore Nearby
+              </ion-card-header>
+            
+              <ion-list>
+                <button ion-item>
+                  <ion-icon name="cart" item-start></ion-icon>
+                  Shopping
+                </button>
+            
+                <button ion-item>
+                  <ion-icon name="medical" item-start></ion-icon>
+                  Hospital
+                </button>
+            
+                <button ion-item>
+                  <ion-icon name="cafe" item-start></ion-icon>
+                  Cafe
+                </button>
+            
+                <button ion-item>
+                  <ion-icon name="paw" item-start></ion-icon>
+                  Dog Park
+                </button>
+            
+                <button ion-item>
+                  <ion-icon name="beer" item-start></ion-icon>
+                  Pub
+                </button>
+            
+                <button ion-item>
+                  <ion-icon name="planet" item-start></ion-icon>
+                  Space
+                </button>
+            
+              </ion-list>
+            </ion-card>
+        </div>
+    </ion-content>

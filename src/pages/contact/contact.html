@@ -1,17 +1,32 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      Contact
+      <strong>Mis citas</strong>
     </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="presentNotifications($event)">
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToAccount()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+    <h2>Bienvenido a Dental
+      <strong>Cloud</strong>!</h2>
+    <p>
+      Te damos la bienvenida a está tu apliación, que te permite interactuar con tu Odontólogo y citas para tu bienestar.
+    </p>
+    <p>
+      Aquí podras saber, que días te toca visita con tu odontólogo
+      <code>src/pages/</code> directory to add or change tabs, update any existing page or create new pages.
+    </p>
+  </div>
 </ion-content>

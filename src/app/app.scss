@@ -3,6 +3,8 @@
 // --------------------------------------------------
 
 // global styles
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto+Slab');
+
 .primary-bg {
     background-color: color($colors, primary) !important;
   }
@@ -307,16 +309,19 @@
       left: 0;
       bottom: 0;
       right: 0;
-      position: absolute;
+      position: fixed;
       z-index: 0;
     }
-  
+    .espacio{
+      height: 30%;
+    }
     .scroll-content {
-      display: flex;
+      
+      align-content: center;
       align-items: center;
       justify-content: center;
-      //background: rgba(50, 10, 92, .4);
-  
+      //background: rgba(255, 255, 255, 1);
+      margin-left: 10%;
       .login-content {
         width: 86%;
   

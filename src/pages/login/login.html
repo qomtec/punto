@@ -1,17 +1,22 @@
+<!-- -->
 <ion-content padding class="animated fadeIn login auth-page">
     <div class="login-content">
 
-        <!-- Logo -->
-        <div padding-horizontal text-center class="animated fadeInDown">
+        <!-- Logo --> 
+        <div padding text-center class="animated fadeInDown">
             <div class="logo"></div>
             <h2 ion-text class="text-primary">
-                Punto
-                <strong>Dental</strong>
+                Dental
+                <strong>Cloud</strong>
             </h2>
         </div>
 
         <!-- Login form -->
         <form class="list-form">
+            <ion-item no-lines>
+
+            </ion-item>
+
             <ion-item>
                 <ion-label floating>
                     <ion-icon name="mail" item-start class="text-primary"></ion-icon>
@@ -28,22 +33,21 @@
                 <ion-input type="password"></ion-input>
             </ion-item>
         </form>
-
         <p text-right ion-text color="secondary" tappable (click)="forgotPass()">
             <strong>Recuperar contraseña?</strong>
         </p>
-
-        <div>
-            <button ion-button icon-start block color="primary" tappable (click)="login()">
-                <ion-icon name="log-in"></ion-icon>
+        <div margin-top>
+            <button ion-button block color="primary" tappable (click)="login()">
                 Ingresar
             </button>
-
         </div>
+        <ion-item no-lines>
+
+        </ion-item>
         <!-- Other links -->
         <div text-center margin-top>
             <span ion-text color="secondary" tappable (click)="register()">Eres nuevo?
-                <strong>Registrate</strong>
+                <strong>Registrate!</strong>
             </span>
         </div>
 
