@@ -46,4 +46,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private statusBar: StatusBar){
+    this.statusBar.overlaysWebView(true);
+    this.statusBar.backgroundColorByHexString('#9DE3FF');
+  }
+}
