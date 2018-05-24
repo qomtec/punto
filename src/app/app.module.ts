@@ -19,6 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { UserServiceProvider } from '../providers/user-service/user-service';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyAqgZ2ahuD-_A8Fg9cQM2TddaJjB6Cr3yQ",
@@ -63,7 +64,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    UserServiceProvider
   ]
 })
 export class AppModule {
