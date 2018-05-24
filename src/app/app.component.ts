@@ -4,22 +4,39 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import { MainPage } from '../pages/main/main';
 import { LoginPage } from '../pages/login/login';
-import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { AboutPage } from '../pages/about/about';
 
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { UserServiceProvider } from '../providers/user-service/user-service';
+import { User } from '../models/user.models';
+
+export interface MenuItem {
+  title: string;
+  component: any;
+  icon: string;
+}
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage: any;
+  datosUsuario = new User();
+  appMenuItems: Array<MenuItem>;
 
   constructor(
     platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen,
     authService: AuthServiceProvider,
-    public alertCtrl: AlertController) {
-    
+    public alertCtrl: AlertController,
+    userService: UserServiceProvider) {
+    this.appMenuItems = [
+      {title: 'Home', component: TabsPage, icon: 'home'},
+      {title: 'Citas', component: AboutPage, icon: 'checkmark-circle-outline'}
+    ];
+    this.datosUsuario.name =" ";
     authService
     .afAuth
     .authState
@@ -31,15 +48,26 @@ export class MyApp {
           this.showAlert("Aún no se ha confirmado la cuenta");
           this.rootPage = LoginPage;
         }*/
-        this.rootPage = TabsPage;
-        
+        console.clear();
+        userService.getUser(data.uid).then( datos => {
+          User.currentUser = datos;
+          this.datosUsuario = datos;
+          if (User.currentUser.tipo == "d"){
+            this.rootPage = MainPage;
+          } else if (User.currentUser.tipo == "p"){
+            this.rootPage = TabsPage;
+          }          
+        }).catch( error => {
+          console.log(error);
+        });
       } else {
         this.rootPage = LoginPage;
       }
     });
     platform.ready().then(() => {
       statusBar.styleDefault();
-      splashScreen.hide();
+      statusBar.overlaysWebView(false);
+
     });
   }
   /*private showAlert(message: string): void {
