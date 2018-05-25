@@ -53,8 +53,15 @@ export class MyApp {
           User.currentUser = datos;
           this.datosUsuario = datos;
           if (User.currentUser.tipo == "d"){
+            this.datosUsuario.tipo ="Médico";
+            this.appMenuItems = [
+              {title: 'Home', component: TabsPage, icon: 'home'},
+              {title: 'Ver citas', component: AboutPage, icon: 'glasses'},
+              {title: 'Agregar citas', component: AboutPage, icon: 'add-circle'}
+            ];
             this.rootPage = MainPage;
           } else if (User.currentUser.tipo == "p"){
+            this.datosUsuario.tipo ="Paciente";
             this.rootPage = TabsPage;
           }          
         }).catch( error => {

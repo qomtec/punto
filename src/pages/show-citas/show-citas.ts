@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
-/**
- * Generated class for the ShowCitasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { User } from "../../models/user.models";
+import { UserServiceProvider } from '../../providers/user-service/user-service';
 
 @IonicPage()
 @Component({
@@ -14,12 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'show-citas.html',
 })
 export class ShowCitasPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lista: any;
+  constructor(
+    public navCtrl: NavController,
+    public userService: UserServiceProvider) {
+    console.clear();
+    this.userService.getUsers(User.currentUser.codigo_clinica)
+      .then(data => {
+        this.lista = data;
+      });
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ShowCitasPage');
-  }
 
+  }
 }

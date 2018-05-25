@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { User, Users } from "../../models/user.models";
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from "angularfire2/database";
+import { User } from "../../models/user.models";
+import { AngularFireDatabase } from "angularfire2/database";
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserServiceProvider {
   private dbPath = '/users/';
-  userRef: AngularFireObject<User> = null;
-  item: Observable<any>;
-  public usuario: User;
+  public listadoUsuarios =[User];
   constructor(public db: AngularFireDatabase) { }
 
   getUser(codigo: string): Promise<User> {
@@ -32,14 +30,20 @@ export class UserServiceProvider {
         });
     });
   }
-  getUsers(codigo_clinica: string): Promise<Users>{
-    return new Promise((resolve, reject) => {
-      let itemsRef: AngularFireList<Users>;
-      let items: Observable<Users[]>;
-      itemsRef = this.db.list(this.dbPath, ref => ref.orderByKey());
-      items = itemsRef.valueChanges();
-      console.log(items);
-      
+  public getUsers(codigo: string): Promise<User[]>{
+    return new Promise((resolve,reject)=>{
+      firebase.database().ref(this.dbPath).orderByChild('codigo_clinica').equalTo(codigo).on('value', data =>{
+        console.clear();
+        //resolve(data.val())
+        let datos = [User]
+        for (var key in data.val()){
+          if (data.val()[key].tipo == "p"){
+            this.listadoUsuarios.push(data.val()[key])
+          }
+        }
+        resolve(data.val());
+      })
     });
+  
   }
 }
