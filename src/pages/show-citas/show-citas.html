@@ -18,17 +18,23 @@
 </ion-header>
 
 <ion-content padding class="animated fadeIn user-list">
-  
-  <ion-item class="ion-slides">
-      <ion-label floating>Seleccionar día:</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate" (ionChange)="dateChange(myDate)"></ion-datetime>
-    </ion-item>
+  <ion-item>
+      <calendar [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onEventSelected)="onEventSelected($event)"
+      (onTitleChanged)="onViewTitleChanged($event)"
+      (onTimeSelected)="onTimeSelected($event)"
+      step="30"
+      class="calendar">
+    </calendar>
+  </ion-item>  
   <ion-list>
     
     <ion-item-sliding >
       <ion-item class="ion-slides">
         <ion-avatar item-left>
-          <img src="../../assets/imgs/avatar.png">
+          <img src="assets/imgs/avatar.png">
         </ion-avatar>
         <h2>Nombre paciente</h2>
         <p>Hora: 10:30</p>
@@ -39,7 +45,7 @@
         </ion-item-options>
       <ion-item>
         <ion-avatar item-left>
-          <img src="../../assets/imgs/avatar.png">
+          <img src="assets/imgs/avatar.png">
         </ion-avatar>
         <h2>Nombre paciente</h2>
         <p>Hora: 11:30</p>
@@ -47,7 +53,7 @@
       </ion-item>
       <ion-item>
         <ion-avatar item-left>
-          <img src="../../assets/imgs/avatar.png">
+          <img src="assets/imgs/avatar.png">
         </ion-avatar>
         <h2>Nombre Paciente</h2>
         <p>Hora: 11:30</p>

@@ -12,7 +12,14 @@ import { MensajeServiceProvider } from '../../providers/mensaje-service/mensaje-
 })
 export class ShowCitasPage {
   lista: any;
+  viewTitle: string;
   myDate: String = new Date().toISOString();
+  selectedDay = new Date();
+ 
+  calendar = {
+    mode: 'month',
+    currentDate: new Date()
+  };
   constructor(
     public navCtrl: NavController,
     public userService: UserServiceProvider) {
@@ -28,5 +35,27 @@ export class ShowCitasPage {
         this.mensajeService.listaCitasUsuario; 
         console.log(this.mensajeService.listaCitasUsuario);
       });*/
+  }
+  onViewTitleChanged(title) {
+    this.viewTitle = title;
+  }
+  onEventSelected(event) {
+    //let start = moment(event.startTime).format('LLLL');
+    //let end = moment(event.endTime).format('LLLL');
+    
+    /*let alert = this.alertCtrl.create({
+      title: '' + event.title,
+      subTitle: 'From: ' + start + '<br>To: ' + end,
+      buttons: ['OK']
+    })
+    alert.present();*/
+    console.log(event.startTime.format('LLLL'));
+    
+  }
+ 
+  onTimeSelected(ev) {
+    this.selectedDay = ev.selectedTime;
+    console.log(this.selectedDay);
+    
   }
 }
