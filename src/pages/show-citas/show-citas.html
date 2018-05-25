@@ -4,28 +4,55 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      <strong>Inicio</strong>
+      <strong>Mis citas</strong>
     </ion-title>
     <ion-buttons end>
-      <button ion-button tappable (click)="presentNotifications($event)">
+      <button ion-button icon-only (click)="presentNotifications($event)">
         <ion-icon name="notifications"></ion-icon>
       </button>
-      <button ion-button tappable (click)="goToAccount()">
+      <button ion-button icon-only (click)="goToAccount()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding class="animated fadeIn login auth-page">
-  <div class="login-content">
-    <ion-item-sliding *ngFor="let lcu of data">
-      <ion-item>
-        <h2>{{ lcu.name }}</h2>
+<ion-content padding class="animated fadeIn user-list">
+  
+  <ion-item class="ion-slides">
+      <ion-label floating>Seleccionar día:</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate" (ionChange)="dateChange(myDate)"></ion-datetime>
+    </ion-item>
+  <ion-list>
+    
+    <ion-item-sliding >
+      <ion-item class="ion-slides">
+        <ion-avatar item-left>
+          <img src="../../assets/imgs/avatar.png">
+        </ion-avatar>
+        <h2>Nombre paciente</h2>
+        <p>Hora: 10:30</p>
+        <p>Mensaje: Extracción de muelas</p>
       </ion-item>
       <ion-item-options>
-        <button ion-button color="secondary" (click)="onUserOpen(item)">Mensaje</button>
-      </ion-item-options>
+          <button ion-button color="danger" (click)="checkCita(lcu)">Eliminar</button>
+        </ion-item-options>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/imgs/avatar.png">
+        </ion-avatar>
+        <h2>Nombre paciente</h2>
+        <p>Hora: 11:30</p>
+        <p>Mensaje: Relleno de tres muelas de mandibula inferior</p>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="../../assets/imgs/avatar.png">
+        </ion-avatar>
+        <h2>Nombre Paciente</h2>
+        <p>Hora: 11:30</p>
+        <p>Mensaje: Limpieza de dos muelas de mandibula inferior</p>
+      </ion-item>
     </ion-item-sliding>
-  </div>
+  </ion-list>
 </ion-content>

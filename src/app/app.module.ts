@@ -23,6 +23,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { MensajeServiceProvider } from '../providers/mensaje-service/mensaje-service';
 
 const firebaseAppConfig: FirebaseAppConfig = {
   apiKey: "AIzaSyAqgZ2ahuD-_A8Fg9cQM2TddaJjB6Cr3yQ",
@@ -74,7 +75,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    UserServiceProvider
+    UserServiceProvider,
+    MensajeServiceProvider
   ]
 })
 export class AppModule {
