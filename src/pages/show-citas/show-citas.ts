@@ -4,6 +4,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { User } from "../../models/user.models";
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { MensajeServiceProvider } from '../../providers/mensaje-service/mensaje-service';
+import { SettingsPage } from "../settings/settings";
 
 @IonicPage()
 @Component({
@@ -15,7 +16,7 @@ export class ShowCitasPage {
   viewTitle: string;
   myDate: String = new Date().toISOString();
   selectedDay = new Date();
- 
+  
   calendar = {
     mode: 'month',
     currentDate: new Date()
@@ -25,6 +26,7 @@ export class ShowCitasPage {
     public userService: UserServiceProvider) {
     
   }
+  
   ionViewDidLoad() {
     console.clear();
   }
@@ -57,5 +59,8 @@ export class ShowCitasPage {
     this.selectedDay = ev.selectedTime;
     console.log(this.selectedDay);
     
+  }
+  goToAccount(){
+    this.navCtrl.setRoot(SettingsPage);
   }
 }

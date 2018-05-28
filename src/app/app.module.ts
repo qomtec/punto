@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { NgCalendarModule  } from 'ionic2-calendar';
+import { Camera } from '@ionic-native/camera';
 
 import { AngularFireModule, FirebaseAppConfig } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -78,7 +79,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
     UserServiceProvider,
-    MensajeServiceProvider
+    MensajeServiceProvider,
+    Camera  
   ]
 })
 export class AppModule {
