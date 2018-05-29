@@ -1,0 +1,52 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+    <!-- Logo -->
+    <div padding text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        Datos personales
+      </h2>
+    </div>
+    <!-- Login form -->
+    <form class="list-form" [formGroup]="dataForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
+      <ion-item no-lines>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Clinica
+        </ion-label>
+        <ion-input type="text" formControlName="clinica" value="dientesg@mail.com"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full (click)="buscar()">Buscar clínica</button>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label>Soy</ion-label>
+          <ion-select interface="action-sheet" formControlName="tipo">
+            <ion-option value="p">Paciente</ion-option>
+            <ion-option value="d">Dentista</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <div margin-top>
+        <button ion-button block color="primary" type="submit" tappable (click)="chema()" [disabled]="dataForm.invalid">
+          Ingresar
+        </button>
+      </div>
+    </form>
+
+
+    <ion-item no-lines>
+
+    </ion-item>
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="register()">Eres nuevo?
+        <strong>Registrate!</strong>
+      </span>
+    </div>
+
+  </div>
+</ion-content>

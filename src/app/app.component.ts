@@ -7,6 +7,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MainPage } from '../pages/main/main';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
+import { DataPage } from '../pages/data/data';
+
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -36,7 +38,8 @@ export class MyApp {
       {title: 'Home', component: TabsPage, icon: 'home'},
       {title: 'Citas', component: AboutPage, icon: 'checkmark-circle-outline'}
     ];
-    this.datosUsuario.name =" ";
+    this.datosUsuario.name = " ";
+    this.rootPage = DataPage;
     authService
     .afAuth
     .authState
@@ -48,7 +51,7 @@ export class MyApp {
           this.showAlert("Aún no se ha confirmado la cuenta");
           this.rootPage = LoginPage;
         }*/
-        console.clear();
+        //console.clear();
         userService.getUser(data.uid).then( datos => {
           User.currentUser = datos;
           this.datosUsuario = datos;

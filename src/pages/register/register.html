@@ -11,44 +11,44 @@
     </div>
 
     <!-- Login form -->
-    <form class="list-form">
+    <form class="list-form" [formGroup]="signupForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
       <ion-item>
         <ion-label floating>
           <ion-icon name="person" item-start class="text-primary"></ion-icon>
           Nombre completo
         </ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="name" value="Ejemplo 1"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>
           <ion-icon name="mail" item-start class="text-primary"></ion-icon>
           Email
         </ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" formControlName="email" value="ejemplo@mail.com" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>
           <ion-icon name="lock" item-start class="text-primary"></ion-icon>
           Password
         </ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" formControlName="password" value="123456"></ion-input>
       </ion-item>
-      <ion-item>
+      <!--<ion-item>
         <button ion-button block tappable (click)="presentActionSheet()"><ion-icon name="image" item-start ></ion-icon>
           <span ion-text>Subir foto</span></button>
-        </ion-item>
+        </ion-item>-->
+        <div margin-top>
+          <button ion-button block color="primary" type="submit" tappable>
+            Registrarse
+          </button>
+        </div>
     </form>
 
-    <div margin-top>
-      <button ion-button block color="primary" tappable (click)="register()">
-        Registrarse
-      </button>
-    </div>
+    
 
     <!-- Other links -->
     <div text-center margin-top>
       <span ion-text color="primary" tappable (click)="login()">Ya tengo cuenta</span>
     </div>
   </div>
-  <img [src]="base64Image" *ngIf="base64Image" />
 </ion-content>

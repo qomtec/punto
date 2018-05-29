@@ -19,6 +19,7 @@ import { MainPage } from "../pages/main/main";
 import { AddCitasPage } from "../pages/add-citas/add-citas";
 import { PrincipalPage } from "../pages/principal/principal";
 import { ShowCitasPage } from "../pages/show-citas/show-citas";
+import { DataPage } from "../pages/data/data";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -49,7 +50,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MainPage,
     PrincipalPage,
     AddCitasPage,
-    ShowCitasPage
+    ShowCitasPage,
+    DataPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ const firebaseAppConfig: FirebaseAppConfig = {
     MainPage,
     PrincipalPage,
     AddCitasPage,
-    ShowCitasPage
+    ShowCitasPage,
+    DataPage
   ],
   providers: [
     StatusBar,
