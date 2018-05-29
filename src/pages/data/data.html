@@ -9,44 +9,30 @@
     </div>
     <!-- Login form -->
     <form class="list-form" [formGroup]="dataForm" (ngSubmit)="onSubmit(); $event.preventDefault()">
+      <ion-item>
+        <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+        <ion-input type="text" formControlName="clinica" placeholder="Clínica"></ion-input>
+      </ion-item>
       <ion-item no-lines>
+        <button ion-button block outline round (click)="buscar()">Buscar clínica</button>
       </ion-item>
       <ion-item>
-        <ion-label floating>
-          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
-          Clinica
-        </ion-label>
-        <ion-input type="text" formControlName="clinica" value="dientesg@mail.com"></ion-input>
+        <ion-label><ion-icon name="phone-portrait"></ion-icon></ion-label>
+        <ion-input type="text" formControlName="telefono" placeholder="Teléfono"></ion-input>
       </ion-item>
       <ion-item>
-        <button ion-button full (click)="buscar()">Buscar clínica</button>
+        <ion-label>Soy</ion-label>
+        <ion-select (ionChange)="cmbSeleccion()" formControlName="tipo" >
+          <ion-option value="p">Paciente</ion-option>
+          <ion-option value="d">Dentista</ion-option>
+        </ion-select>
       </ion-item>
-      <ion-list>
-        <ion-item>
-          <ion-label>Soy</ion-label>
-          <ion-select interface="action-sheet" formControlName="tipo">
-            <ion-option value="p">Paciente</ion-option>
-            <ion-option value="d">Dentista</ion-option>
-          </ion-select>
-        </ion-item>
-      </ion-list>
+
       <div margin-top>
-        <button ion-button block color="primary" type="submit" tappable (click)="chema()" [disabled]="dataForm.invalid">
+        <button ion-button block round color="primary" type="submit" tappable (click)="chema()" [disabled]="dataForm.invalid">
           Ingresar
         </button>
       </div>
     </form>
-
-
-    <ion-item no-lines>
-
-    </ion-item>
-    <!-- Other links -->
-    <div text-center margin-top>
-      <span ion-text color="secondary" tappable (click)="register()">Eres nuevo?
-        <strong>Registrate!</strong>
-      </span>
-    </div>
-
   </div>
 </ion-content>

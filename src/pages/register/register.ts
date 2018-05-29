@@ -42,7 +42,7 @@ export class RegisterPage {
     this.authService.signupWithEmail({ email: formUser.email, password: formUser.password })
       .then((data: firebase.User) => {
         delete formUser.password;
-        let uuid: string = data.user.uid;
+        let uuid: string = data.uid;
         console.log(uuid);
         
         let user = new User();

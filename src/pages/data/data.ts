@@ -9,6 +9,7 @@ import { UserServiceProvider } from "../../providers/user-service/user-service";
 })
 export class DataPage {
   dataForm: FormGroup;
+  cmb: any;
   constructor(public alertCtrl: AlertController,
     public userService: UserServiceProvider,
     public formBuilder: FormBuilder,
@@ -17,11 +18,14 @@ export class DataPage {
     let emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
     this.dataForm = this.formBuilder.group({
       clinica: ['', [Validators.required, Validators.minLength(3)]],
+      telefono: ['', [Validators.required, Validators.minLength(3)]],
       tipo: ['', [Validators.required, Validators.minLength(1)]],
       codigo_clinica: [' ', [Validators.required, Validators.minLength(1)]],
     });
    }
   onSubmit() {
+    let formUser = this.dataForm.value;
+    
     
   }
   forgotPass() {
@@ -29,6 +33,23 @@ export class DataPage {
   }
   register() {
     
+  }
+  cmbSeleccion(){
+    
+  }
+  private showLoading(): Loading {
+    let loading: Loading = this.loadingCtrl.create({
+      content: 'Por favor espera...'
+    });
+    loading.present();
+    return loading;
+  }
+
+  private showAlert(message: string): void {
+    this.alertCtrl.create({
+      message: message,
+      buttons: ['Ok']
+    }).present();
   }
 
 }
