@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IonicPage, NavController, AlertController, Loading, LoadingController, ActionSheetController } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import * as firebase from 'firebase/app';
 

@@ -40,7 +40,7 @@ export class MyApp {
     ];
     this.datosUsuario.name = " ";
     this.rootPage = DataPage;
-    /*authService
+    authService
     .afAuth
     .authState
     .subscribe(data => {
@@ -50,7 +50,7 @@ export class MyApp {
         } else {
           this.showAlert("Aún no se ha confirmado la cuenta");
           this.rootPage = LoginPage;
-        }-------
+        }-------*/
         //console.clear();
         userService.getUser(data.uid).then( datos => {
           User.currentUser = datos;
@@ -73,7 +73,7 @@ export class MyApp {
       } else {
         this.rootPage = LoginPage;
       }
-    });*/
+    });
     platform.ready().then(() => {
       statusBar.styleDefault();
       statusBar.overlaysWebView(false);
