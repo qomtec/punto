@@ -52,4 +52,8 @@ export class UserServiceProvider {
     // return imageRef.putString(image, 'data_url');
     //return imageRef.putString(image);
   }
+  getClinica(email: string): Promise<any>{
+    let ref = firebase.database().ref("/clinica/" + User.GenerateKey(email));
+    return ref.once("value");
+  }
 }

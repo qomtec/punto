@@ -28,11 +28,17 @@ export class DataPage {
       codigo_clinica: [' ', [Validators.required, Validators.minLength(1)]],
     });
    }
-  onSubmit() {
-    //let loading: Loading = this.showLoading();
-    //let formUser = this.dataForm.value;
-   // User.currentUser.codigo_clinica = "1";
-  
+  onSubmit(): void {
+    
+  }
+  buscar(){
+    let formUser = this.dataForm.value;
+    this.userService.getClinica(formUser.clinica)
+    .then(data =>{
+      let cadena: any = data.child("nombre").val();
+      console.log(cadena);
+      
+    })
   }
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
